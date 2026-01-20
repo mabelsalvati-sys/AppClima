@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: url('/img/clima.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    background: rgba(111, 233, 229, 0.242);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    font-size: 23px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    color: rgb(14, 15, 91);
+}
+
+.clima-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+}
+
+.clima-box {
+    background: rgba(1, 246, 234, 0.432);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s;
+    font-size: 22px;
+    animation: flotar 3s infinite ease-in-out;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+
+.clima-box:hover {
+    transform: scale(1.05);
+    background: rgba(95, 236, 240, 0.93);
+    text-shadow: 0 0 10px white;
+}
+
+.clima-temp {
+
+    color: transparent;
+    animation: brilloTemp 3s infinite linear;
+}
+
+@keyframes brilloTemp {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+
+.clima-icon {
+    font-size: 45px;
+    text-align:30px;
+}
+
+.titulo {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0e0af4;
+    animation: pulse 3s infinite;
+
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 0px black; }
+    50% { text-shadow: 0 0 12px rgba(0,0,0,0.5); }
+    100% { text-shadow: 0 0 0px black; }
+}
+
+.clima-box h3,
+.clima-box p {
+    color: #000;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.subtitulo {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0e0af4;
+}
+
+.estado {
+    font-size: 40px;
+    margin-top: 10px;
+    color: #660dbf;
+    text-align: center;
+}
+
+.container-clima-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    font-size: 25px;
+    text-align: center;
+    padding: 25px;
+    transition: transform 0.3s ease;
+}
+
+button {
+    background: linear-gradient(135deg, #f6ae3b, #d40906);
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+form button {
+    background: linear-gradient(135deg, #5bef44, #1cb9a9);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.btn-nr {
+
+    display: inline-block;
+    background: linear-gradient(135deg, #d3f744, #22d3ee);
+    padding: 12px 18px;
+    border-radius: 14px;
+    color: rgb(110, 16, 243);
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.btn-nuevo:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #38bdf8, #67e8f9);
+}
+
+.btn-vl {
+    display: inline-block;
+    background: linear-gradient(135deg, #f43f5e, #d946ef);
+    padding: 12px 18px;
+    border-radius: 14px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
