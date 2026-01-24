@@ -11,8 +11,8 @@
             <div class="nav-bar">
                 <h1 style="font-weight: 800; italic">BIENVENIDO</h1>
                 <div>
-                    <a href="{{ route('clima.administrar') }}" class="btn btn-dark">⚙️ Gestionar</a>
-                    <a href="{{ route('clima.predicciones') }}" class="btn btn-primary">☁️ Predicciones</a>
+                    <a href="{{ route('clima.administrar') }}" class="btn btn-dark">⚙️ Ir a Registros</a>
+                    <a href="{{ route('clima.predicciones') }}" class="btn btn-primary">☁️ Ir a Predicciones</a>
                 </div>
             </div>
             <div class="card">

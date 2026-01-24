@@ -21,12 +21,14 @@ class ClimaController extends Controller
         return view('clima.index', compact('registros', 'fechas', 'temperaturas'));
     }
 
-    // 2. GESTIÓN (Guardar, Editar, Eliminar)
+    // CONSULTAR: Con Join manual
     public function administrar() {
         $registros = DB::table('climas')
             ->join('ciudades', 'climas.ciudad_id', '=', 'ciudades.id')
             ->select('climas.*', 'ciudades.nombre as ciudad_nombre')
-            ->orderBy('climas.created_at', 'desc')->get();
+            ->orderBy('climas.created_at', 'desc')
+            ->get();
+
         $ciudades = DB::table('ciudades')->get();
 
         return view('clima.gestion', compact('registros', 'ciudades'));
@@ -55,18 +57,19 @@ class ClimaController extends Controller
         return view('clima.show', compact('registro'));
     }
 
-    // ACCIONES CRUD
+    // GUARDAR: SQL Directo
     public function store(Request $request) {
-        DB::table('climas')->insert([
-            'ciudad_id' => $request->ciudad_id,
-            'temperatura' => $request->temperatura,
-            'estado_clima' => $request->estado_clima,
-            'created_at' => $request->fecha ?? now(),
-            'updated_at' => now()
-        ]);
-        return redirect()->route('clima.administrar')->with('success', 'Guardado con éxito');
-    }
+            DB::table('climas')->insert([
+                'ciudad_id'    => $request->ciudad_id,
+                'temperatura'  => $request->temperatura,
+                'estado_clima' => $request->estado_clima,
+                'created_at'   => $request->fecha ?? now(),
+                'updated_at'   => now()
+            ]);
 
+            return redirect()->route('clima.administrar')->with('success', 'Registro creado');
+    }
+            
     public function update(Request $request, $id) {
         DB::table('climas')->where('id', $id)->update([
             'temperatura' => $request->temperatura,

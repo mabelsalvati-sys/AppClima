@@ -15,7 +15,7 @@
             </div>
             <div style="display: flex; gap: 10px;">
                 <a href="{{ route('clima.index') }}" class="btn btn-dark">🏠 Inicio</a>
-                <a href="{{ route('clima.administrar') }}" class="btn btn-primary">⚙️ Gestión</a>
+                <a href="{{ route('clima.administrar') }}" class="btn btn-primary">⚙️ Ir a Registros</a>
             </div>
         </div>
 
