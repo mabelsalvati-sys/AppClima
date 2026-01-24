@@ -3,14 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClimaController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ClimaController::class, 'index'])->name('clima.index');
+Route::get('/clima/administrar', [ClimaController::class, 'administrar'])->name('clima.administrar');
+Route::get('/clima/predicciones', [ClimaController::class, 'predicciones'])->name('clima.predicciones');
+Route::get('/clima/editar/{id}', [ClimaController::class, 'edit'])->name('clima.edit');
+Route::get('/clima/ver/{id}', [ClimaController::class, 'show'])->name('clima.show');
 
-Route::get('/', [ClimaController::class,'index'])->name('clima.index');
-Route::get('/create', [ClimaController::class,'create'])->name('clima.create');
-Route::post('/store', [ClimaController::class,'store'])->name('clima.store');
-Route::get('/show/{id}', [ClimaController::class,'show'])->name('clima.show');
-Route::get('/edit/{id}', [ClimaController::class,'edit'])->name('clima.edit');
-Route::put('/update/{id}', [ClimaController::class,'update'])->name('clima.update');
-Route::delete('/delete/{id}', [ClimaController::class,'destroy'])->name('clima.destroy');
+Route::post('/clima/guardar', [ClimaController::class, 'store'])->name('clima.store');
+Route::put('/clima/actualizar/{id}', [ClimaController::class, 'update'])->name('clima.update');
+Route::delete('/clima/eliminar/{id}', [ClimaController::class, 'destroy'])->name('clima.destroy');

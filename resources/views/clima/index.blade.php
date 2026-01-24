@@ -1,53 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Climas</title>
+        <title>Bienvenido</title>
+        <link rel="stylesheet" href="{{ asset('css/estilos_clima.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
-    <body>
-        
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
+    <body class="fondo-Inicio">
         <div class="container">
-            <h1 class="titulo">REGISTRO DE CLIMA</h1>
-            <a href="{{ route('clima.create') }}" class="btn-nr">Nuevo Registro</a>
-
-            <table>
-                <div class="clima-grid">
-                    @foreach($climas as $c)
-                <div class="clima-box">
-
-                <div class="clima-icon">
-                    @if($c->descripcion=="Soleado") ☀️
-                    @elseif($c->descripcion=="Nublado") ☁️
-                    @elseif($c->descripcion=="Lluvia") 🌧️
-                    @else 🌤️
-                    @endif
+            <div class="nav-bar">
+                <h1 style="font-weight: 800; italic">BIENVENIDO</h1>
+                <div>
+                    <a href="{{ route('clima.administrar') }}" class="btn btn-dark">⚙️ Gestionar</a>
+                    <a href="{{ route('clima.predicciones') }}" class="btn btn-primary">☁️ Predicciones</a>
                 </div>
-
-                <h3>{{ $c->ciudad }}</h3>
-                <p>{{ $c->region }}</p>
-
-                <div class="clima-temp">{{ $c->temperatura }}</div>
-                <p>{{ $c->descripcion }} - {{ $c->estacion }}</p>
-
-                <a href="{{ route('clima.show',$c->id) }}">Ver</a>
-                <a href="{{ route('clima.edit',$c->id) }}">Editar</a>
-
-                <form action="{{ route('clima.destroy',$c->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <br>
-                    <button>Eliminar</button>
-                </form>
-
-                </div>
-                    @endforeach
-                </div>
-
-            </table>
+            </div>
+            <div class="card">
+                <h2>Análisis Térmico</h2>
+                <canvas id="climaChart" height="100"></canvas>
+            </div>
         </div>
-
+        <script>
+            const ctx = document.getElementById('climaChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: {!! json_encode($fechas) !!},
+                    datasets: [{
+                        label: 'Temperatura °C',
+                        data: {!! json_encode($temperaturas) !!},
+                        borderColor: '#2563eb',
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)'
+                    }]
+                }
+            });
+        </script>
     </body>
 </html>

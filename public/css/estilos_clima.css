@@ -1,0 +1,180 @@
+/* public/css/estilos_clima.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --dark: #0f172a;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: url('../img/clima.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f8fafc;
+}
+
+/* Contenedor con Blur */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    justify-content: center;
+}
+
+/* Tarjetas Estilo Glassmorphism */
+.card {
+    justify-content: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    color: var(--dark);
+    transition: transform 0.3s ease;
+    justify-items: center;
+}
+
+
+/* Navegación Moderna */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2.5rem;
+    border-radius: 20px;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* BOTONES PROFESIONALES */
+.btn {
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.btn:active { transform: scale(0.95); }
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+.btn-primary:hover {
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+    filter: brightness(1.1);
+}
+
+.btn-dark {
+    background: var(--dark);
+    color: white;
+}
+.btn-dark:hover { background: #1e293b; }
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.btn-danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    padding: 8px;
+}
+.btn-danger:hover { background: var(--danger); color: white; }
+
+/* TABLAS ESTILO DASHBOARD */
+.table-container {
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+}
+
+.table-custom {
+    justify-content: center;
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.table-custom thead {
+    background: var(--dark);
+    color: white;
+}
+
+.table-custom th {
+    padding: 18px 20px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.table-custom td {
+    justify-items:center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.table-custom tr:last-child td { border-bottom: none; }
+
+.table-custom tr:hover td {
+    background-color: #f8fafc;
+    color: var(--primary);
+}
+
+/* Estilo para la temperatura en tabla */
+.temp-badge {
+    font-weight: 800;
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+/* Formularios */
+.input-style {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+    transition: all 0.3s;
+    outline: none;
+    font-size: 1rem;
+}
+.input-style:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}

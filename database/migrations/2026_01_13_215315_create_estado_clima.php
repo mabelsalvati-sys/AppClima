@@ -9,15 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
+   public function up() {
         Schema::create('climas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ciudad_id')->constrained('ciudades')->onDelete('cascade');
-            $table->string('estacion');
-            $table->string('temperatura');
-            $table->string('descripcion');
+            $table->unsignedBigInteger('ciudad_id');
+            $table->string('estado_clima'); // <--- CAMBIA 'estacion' por esto
+            $table->decimal('temperatura', 8, 2);
             $table->timestamps();
+            $table->foreign('ciudad_id')->references('id')->on('ciudades')->onDelete('cascade');
         });
     }
 
@@ -29,3 +28,4 @@ return new class extends Migration
         Schema::dropIfExists('climas');
     }
 };
+
