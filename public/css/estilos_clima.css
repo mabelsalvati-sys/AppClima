@@ -20,7 +20,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: #f8fafc;
+    color: #fafafa;
 }
 
 /* Contenedor con Blur */
@@ -45,8 +45,8 @@ body {
     color: var(--dark);
     transition: transform 0.3s ease;
     justify-items: center;
+    
 }
-
 
 /* Navegación Moderna */
 .nav-bar {
@@ -83,7 +83,7 @@ body {
 .btn-primary {
     background: linear-gradient(135deg, var(--primary), var(--primary-hover));
     color: white;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 15px rgba(38, 13, 165, 0.93);
 }
 .btn-primary:hover {
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
@@ -92,9 +92,10 @@ body {
 
 .btn-dark {
     background: var(--dark);
+    background-color: #10b981;
     color: white;
 }
-.btn-dark:hover { background: #1e293b; }
+.btn-dark:hover { background: #0c9af3; }
 
 .btn-success {
     background: linear-gradient(135deg, #10b981, #059669);
@@ -177,4 +178,23 @@ body {
     border-color: var(--primary);
     background: white;
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.container-fondo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    
+}
+
+.contenedor-grafica-principal {
+    background-color: #f8fafc; /* Gris muy claro solicitado */
+    border-radius: 20px;
+    padding: 25px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    height: 400px;
+    margin: 20px 0;
 }
